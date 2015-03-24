@@ -27,7 +27,7 @@ angular.module('WhereIsMyMoney', ['ionic'])
       }
     })
   
-  $urlRouterProvider.otherwise("/event/ItemPage");
+  $urlRouterProvider.otherwise("/event/ItemPage"); 
 })
 
 .controller('MainCtrl', function($scope, $ionicSideMenuDelegate) {
