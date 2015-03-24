@@ -13,6 +13,7 @@ angular.module('WhereIsMyMoney', ['ionic'])
       views: {
         'menuContent' :{
           templateUrl: "templates/ItemPage.html"
+        
         }
       }
     })
@@ -95,3 +96,4 @@ angular.module('WhereIsMyMoney', ['ionic'])
   };
   
 });
+
