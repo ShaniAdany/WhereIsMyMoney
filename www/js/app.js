@@ -17,30 +17,12 @@ angular.module('WhereIsMyMoney', ['ionic'])
         }
       }
     })
-    .state('eventmenu.checkin', {
-      url: "/check-in",
+    .state('eventmenu.expense-view', {
+      url: "/expense-view",
       views: {
         'menuContent' :{
-          templateUrl: "templates/check-in.html",
-          controller: "CheckinCtrl"
-        }
-      }
-    })
-    .state('eventmenu.attendees', {
-      url: "/attendees",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/attendees.html",
-          controller: "AttendeesCtrl"
-        }
-      }
-    })
-      .state('eventmenu.ItemsList', {
-      url: "/ItemsList",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/ItemsList.html",
-          controller: "AttendeesCtrl"
+          templateUrl: "templates/expense-view.html",
+          controller: "expenseCtrl"
         }
       }
     })
@@ -61,7 +43,7 @@ angular.module('WhereIsMyMoney', ['ionic'])
   };
 })
 
-.controller('CheckinCtrl', function($scope) {
+.controller('expenseCtrl', function($scope) {
   $scope.showForm = true;
   
   $scope.shirtSizes = [
@@ -80,20 +62,4 @@ angular.module('WhereIsMyMoney', ['ionic'])
     $scope.attendees.push($scope.attendee);
   };
   
-})
-
-.controller('AttendeesCtrl', function($scope) {
-  
-  $scope.activity = [];
-  $scope.arrivedChange = function(attendee) {
-    var msg = attendee.firstname + ' ' + attendee.lastname;
-    msg += (!attendee.arrived ? ' has arrived, ' : ' just left, '); 
-    msg += new Date().getMilliseconds();
-    $scope.activity.push(msg);
-    if($scope.activity.length > 3) {
-      $scope.activity.splice(0, 1);
-    }
-  };
-  
 });
-

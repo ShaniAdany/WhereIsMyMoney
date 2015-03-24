@@ -42,15 +42,16 @@
 
         <ion-side-menu side="right">
           <ion-header-bar class="bar-assertive">
-            <h1 class="title">Right Menu</h1>
+            <h1 class="title">תפריט</h1>
           </ion-header-bar>
           <ion-content>
             <ul class="list">
               <!-- Note each link has the 'menu-close' attribute so the menu auto closes when clicking on one of these links -->
-              <a href="#/event/check-in" class="item" menu-close>Check-in</a>
-              <a href="#/event/attendees" class="item" menu-close>Attendees</a>
-              <a href="#/event/ItemPage" class="item" menu-close>Item Page</a>
-              <a href="#/event/ItemsList" class="item" menu-close>Items List</a>
+              <a href="#/event/expense-view" class="item" menu-close>הוצאות</a>
+              <!--<a href="#/event/attendees" class="item" menu-close>Attendees</a>
+              <a href="#/event/ItemsList" class="item" menu-close>Items List</a> -->
+              <a href="#/event/ItemPage" class="item" menu-close>תיעוד</a>
+              
             </ul>
           </ion-content>
         </ion-side-menu>
@@ -80,86 +81,13 @@
       </ion-view>
     </script>
 
-    <script id="templates/check-in.html" type="text/ng-template">
-      <ion-view view-title="Event Check-in">
+    <script id="templates/expense-view.html" type="text/ng-template">
+      <ion-view view-title="הוצאות">
         <ion-content>
-          <form class="list" ng-show="showForm">
-            <div class="item item-divider">
-              Attendee Info
-            </div>
-            <label class="item item-input">
-              <input type="text" placeholder="First Name" ng-model="attendee.firstname">
-            </label>
-            <label class="item item-input">
-              <input type="text" placeholder="Last Name" ng-model="attendee.lastname">
-            </label>
-            <div class="item item-divider">
-              Shirt Size
-            </div>
-            <ion-radio ng-repeat="shirtSize in shirtSizes"
-                       ng-value="shirtSize.value"
-                       ng-model="attendee.shirtSize">
-              {{ shirtSize.text }}
-            </ion-radio>
-            <div class="item item-divider">
-              Lunch
-            </div>
-            <ion-toggle ng-model="attendee.vegetarian">
-              Vegetarian
-            </ion-toggle>
-            <div class="padding">
-              <button class="button button-block" ng-click="submit()">Checkin</button>
-            </div>
-          </form>
-
-          <div ng-hide="showForm">
-            <pre ng-bind="attendee | json"></pre> 
-            <a href="#/event/attendees">View attendees</a>
-          </div>
+        
         </ion-content>
       </ion-view>
     </script>
 
-    <script id="templates/attendees.html" type="text/ng-template">
-      <ion-view view-title="Event Attendees">
-        <ion-content>
-          <div class="list">
-            <ion-toggle ng-repeat="attendee in attendees | orderBy:'firstname' | orderBy:'lastname'"
-                        ng-model="attendee.arrived"
-                        ng-change="arrivedChange(attendee)">
-              {{ attendee.firstname }}
-              {{ attendee.lastname }}
-            </ion-toggle>
-            <div class="item item-divider">
-              Activity
-            </div>
-            <div class="item" ng-repeat="msg in activity">
-              {{ msg }}
-            </div>
-          </div>
-        </ion-content>
-      </ion-view>
-    </script>
-  
-      <script id="templates/ItemsList.html" type="text/ng-template">
-      <ion-view view-title="Event Attendees">
-        <ion-content>
-          <div class="list">
-            <ion-toggle ng-repeat="attendee in attendees | orderBy:'firstname' | orderBy:'lastname'"
-                        ng-model="attendee.arrived"
-                        ng-change="arrivedChange(attendee)">
-              {{ attendee.firstname }}
-              {{ attendee.lastname }}
-            </ion-toggle>
-            <div class="item item-divider">
-              Activity
-            </div>
-            <div class="item" ng-repeat="msg in activity">
-              {{ msg }}
-            </div>
-          </div>
-        </ion-content>
-      </ion-view>
-    </script>
   </body>
 </html>
