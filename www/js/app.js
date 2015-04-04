@@ -12,8 +12,8 @@ angular.module('WhereIsMyMoney', ['ionic'])
       url: "/ItemPage",
       views: {
         'menuContent' :{
-          templateUrl: "templates/ItemPage.html"
-        
+          templateUrl: "templates/ItemPage.html",
+          controller: "expenseCtrl"
         }
       }
     })
@@ -63,3 +63,5 @@ angular.module('WhereIsMyMoney', ['ionic'])
   };
   
 });
+
+
